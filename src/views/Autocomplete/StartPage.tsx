@@ -10,6 +10,9 @@ export const StartPage: React.FC = () => {
         <li>
           <Link to="/autocomplete/off">autocomplete="off"</Link>
         </li>
+        <li>
+          <Link to="/autocomplete/named">именованные autocomplete</Link>
+        </li>
       </ul>
     </div>
   )
