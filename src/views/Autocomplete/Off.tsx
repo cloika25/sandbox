@@ -1,10 +1,6 @@
 export const Off: React.FC = () => {
   return (
-    <form 
-      className="col" 
-      method="POST"
-      onSubmit={(value) => {console.log(value)}}
-    >
+    <form className="col" action="javascript:console.log('submit')">
       <label htmlFor="firstName">Имя</label>
       <input id="firstName" autoComplete="off" type="text" name="firstName"></input>
       <label htmlFor="lastName">Фамилия</label>

@@ -1,6 +1,6 @@
 export const Named = () => {
   return (
-    <form className="col">
+    <form className="col" action="javascript:console.log('submit')">
       <label htmlFor="firstName">Имя</label>
       <input id="firstName" autoComplete="given-name" type="text" name="firstName"></input>
       <label htmlFor="lastName">Фамилия</label>

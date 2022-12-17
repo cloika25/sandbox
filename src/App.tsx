@@ -1,4 +1,4 @@
-import { createBrowserRouter,  RouterProvider } from 'react-router-dom'
+import { createBrowserRouter,  Navigate,  RouterProvider } from 'react-router-dom'
 import './App.css'
 import { MainPage } from './views/MainPage'
 import { AutocompleteRouter } from './views/Autocomplete/router'
@@ -12,7 +12,10 @@ const router = createBrowserRouter([
     path: '/autocomplete/*',
     element: <AutocompleteRouter />,
   },
-  {}
+  {
+    path: '*',
+    element: <Navigate to="/" replace />
+  }
 ])
 
 const App: React.FC = () =>  {

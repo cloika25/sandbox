@@ -13,6 +13,9 @@ export const StartPage: React.FC = () => {
         <li>
           <Link to="/autocomplete/named">именованные autocomplete</Link>
         </li>
+        <li>
+          <Link to="/autocomplete/simpleLogin">простая форма логина</Link>
+        </li>
       </ul>
     </div>
   )
