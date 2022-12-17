@@ -5,7 +5,7 @@ import { AutocompleteRouter } from './views/Autocomplete/router'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/*',
     element: <MainPage />,
   },
   {
