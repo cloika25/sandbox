@@ -5,13 +5,14 @@ import { AutocompleteRouter } from './views/Autocomplete/router'
 
 const router = createBrowserRouter([
   {
-    path: '/*',
+    path: '/',
     element: <MainPage />,
   },
   {
     path: '/autocomplete/*',
     element: <AutocompleteRouter />,
-  }
+  },
+  {}
 ])
 
 const App: React.FC = () =>  {

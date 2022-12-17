@@ -2,6 +2,7 @@ export const Off: React.FC = () => {
   return (
     <form 
       className="col" 
+      method="POST"
       onSubmit={(value) => {console.log(value)}}
     >
       <label htmlFor="firstName">Имя</label>
