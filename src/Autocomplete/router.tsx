@@ -4,7 +4,6 @@ import { Off } from './Off';
 import { Named } from './Named';
 import { SimpleLogin } from './SimpleLogin';
 
-
 export const AutocompleteRouter = () => {
   const router = useRoutes([{
     path: '/',
@@ -19,5 +18,6 @@ export const AutocompleteRouter = () => {
     path: '/simpleLogin',
     element: <SimpleLogin/>
   }])
+  
   return router
 }

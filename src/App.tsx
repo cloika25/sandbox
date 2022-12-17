@@ -1,7 +1,8 @@
 import { createBrowserRouter,  Navigate,  RouterProvider } from 'react-router-dom'
 import './App.css'
 import { MainPage } from './views/MainPage'
-import { AutocompleteRouter } from './views/Autocomplete/router'
+import { AutocompleteRouter } from './Autocomplete/router'
+import { EffectorRouter } from './Effector/router'
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: '/autocomplete/*',
     element: <AutocompleteRouter />,
+  },
+  {
+    path: '/effector/*',
+    element: <EffectorRouter />
   },
   {
     path: '*',

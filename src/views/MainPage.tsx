@@ -7,7 +7,10 @@ export const MainPage: React.FC = () => {
       <ul>
         <li>
           <Link to="/autocomplete">Тесты параметра autocomplete</Link>
-          </li>
+        </li>
+        <li>
+          <Link to="/effector">Изучение Effector</Link>
+        </li>
       </ul>
     </div>)
 }
