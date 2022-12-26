@@ -1,9 +1,11 @@
 import { useRoutes } from "react-router-dom"
+import PetStore from "./PetStore";
+import './models/init'
 
 export const EffectorRouter = () => {
   const router = useRoutes([{
     path: '/',
-    element: <span>Тут будут попытки изучения effector, не стремайте 👉👈</span>
+    element: <PetStore />
   }])
 
   return router;

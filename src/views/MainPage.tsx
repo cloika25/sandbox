@@ -12,5 +12,10 @@ export const MainPage: React.FC = () => {
           <Link to="/effector">Изучение Effector</Link>
         </li>
       </ul>
+
+      <span>каминг сун</span>
+      <ul>
+        <li>аналог твитера на JQuery</li>
+      </ul>
     </div>)
 }
