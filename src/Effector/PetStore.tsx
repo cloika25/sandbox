@@ -1,9 +1,10 @@
 import { useStore } from 'effector-react'
 import React, { useEffect } from 'react'
-import { $usersGetStatus,  update,  updatePetFx } from './models/model'
+import { $petsUpdateStatus, update,  updatePetFx } from './models/model'
+import { PetList } from './PetList';
 
 const PetStore: React.FC = () => {
-  const {loading, error, data} = useStore($usersGetStatus);
+  const {loading, error, data} = useStore($petsUpdateStatus);
 
   useEffect(() => {
     updatePetFx()
@@ -11,7 +12,7 @@ const PetStore: React.FC = () => {
 
   return (
     <div>
-      <div>
+      <div style={{marginBottom: '2rem'}}>
         <span>{`В качестве api использовано `}</span> 
         <a href="https://petstore3.swagger.io/#/" target="_blank">
           https://petstore3.swagger.io/#/
@@ -22,13 +23,23 @@ const PetStore: React.FC = () => {
           <div> loading... </div>
         )}
         {!loading && (
-          JSON.stringify(data)
+          <PetList pets={data} />
         )}
-        <div>{JSON.stringify(error)}</div>
-
+        {error && (
+          <div>
+            error: {error.message}
+          </div>
+        )}
+        <div style={{marginBottom: '1rem', marginTop: '1rem'}}>
+          <button onClick={() => {
+            updatePetFx();
+          }}>
+            Получить список
+          </button>
+        </div>
         <div>
           <button onClick={() => {
-            update([])
+            update([]);
           }}>
             Очистить список
           </button>

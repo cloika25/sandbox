@@ -7,7 +7,7 @@ getPetByIdFx.use(findById);
 
 
 const updatePetStore = (state: Pet[], data: Pet[]) => {
-  return [...state, ...data]
+  return data;
 }
 
 const getPetByIdHandler = (state: Pet[], data: Pet) => {
