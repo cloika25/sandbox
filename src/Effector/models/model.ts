@@ -10,8 +10,11 @@ export const update = createEvent<Pet[]>();
 export const updatePetFx = createEffect<void, Pet[], Error>();
 /** Ошибка получения списка животных */
 export const $updateError = createStore<Error | null>(null);
+/** Сброс ошибки списка */
+export const clearErrorList = createEvent<void>();
 $updateError
   .on(updatePetFx.fail, (_, { error }) => error)
+  .reset(clearErrorList)
   .reset(updatePetFx.done);
 /** Статус получения списка животных */
 export const $petsUpdateStatus = combine({
@@ -28,8 +31,11 @@ export const updatePetBuId = createEvent<Pet | null>();
 export const getPetByIdFx = createEffect<number, Pet, Error>();
 /** Ошибка получеения по id */
 export const $fetchByIdError = createStore<Error | null>(null);
+/** Сброс ошибки */
+export const clearErrorGetById = createEvent<void>();
 $fetchByIdError
   .on(getPetByIdFx.fail, (_, { error }) => error)
+  .reset(clearErrorGetById)
   .reset(getPetByIdFx.done)
 /** Статус получения по id */
 export const $petGetByIdStatus = combine({

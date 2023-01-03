@@ -1,6 +1,6 @@
 import { useStore } from 'effector-react'
 import React, { useState } from 'react'
-import { $petGetByIdStatus, $petsUpdateStatus, getPetByIdFx, update, updatePetBuId, updatePetFx } from './models/model'
+import { $petGetByIdStatus, $petsUpdateStatus, clearErrorGetById, getPetByIdFx, update, updatePetBuId, updatePetFx } from './models/model'
 import { PetItem, PetList } from './PetList';
 
 const PetStore: React.FC = () => {
@@ -88,6 +88,7 @@ const PetStore: React.FC = () => {
             Получить животного
           </button>
           <button onClick={() => {
+            clearErrorGetById();
             updatePetBuId(null);
           }}>
             Очистить животное
