@@ -15,7 +15,9 @@ export const MainPage: React.FC = () => {
 
       <span>каминг сун</span>
       <ul>
-        <li>аналог твитера на JQuery</li>
+        <li title="но это не точно">аналог твитера на JQuery</li>
+        <li>залезть в Redux по самые помидоры</li>
+        <li>css modules</li>
       </ul>
     </div>)
 }
