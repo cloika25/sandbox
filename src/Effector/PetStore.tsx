@@ -1,47 +1,96 @@
 import { useStore } from 'effector-react'
-import React, { useEffect } from 'react'
-import { $petsUpdateStatus, update,  updatePetFx } from './models/model'
-import { PetList } from './PetList';
+import React, { useState } from 'react'
+import { $petGetByIdStatus, $petsUpdateStatus, getPetByIdFx, update, updatePetBuId, updatePetFx } from './models/model'
+import { PetItem, PetList } from './PetList';
 
 const PetStore: React.FC = () => {
-  const {loading, error, data} = useStore($petsUpdateStatus);
+  const { loading: loadingList, error: errorList, data: dataList } = useStore($petsUpdateStatus);
+  const {loading: loadingPet, error: errorPet, data: dataPet} = useStore($petGetByIdStatus);
 
-  useEffect(() => {
-    updatePetFx()
-  }, [])
+  const [petId, setPetId] = useState(0)
 
   return (
     <div>
-      <div style={{marginBottom: '2rem'}}>
-        <span>{`В качестве api использовано `}</span> 
+      <div style={{ marginBottom: '2rem' }}>
+        <span>{`В качестве api использовано `}</span>
         <a href="https://petstore3.swagger.io/#/" target="_blank">
           https://petstore3.swagger.io/#/
         </a>
       </div>
       <div>
-        {loading && (
+        <h3>Получение списка животных</h3>
+        {loadingList && (
           <div> loading... </div>
         )}
-        {!loading && (
-          <PetList pets={data} />
+        {!loadingList && (
+          <PetList pets={dataList} />
         )}
-        {error && (
+        {errorList && (
           <div>
-            error: {error.message}
+            error: {errorList.message}
           </div>
         )}
-        <div style={{marginBottom: '1rem', marginTop: '1rem'}}>
-          <button onClick={() => {
-            updatePetFx();
-          }}>
+        <div>
+          <button 
+            onClick={() => {
+              updatePetFx();
+            }}
+            style={{
+              marginTop: '1rem',
+              marginRight: '1rem'
+            }}
+          >
             Получить список
           </button>
-        </div>
-        <div>
           <button onClick={() => {
             update([]);
           }}>
             Очистить список
+          </button>
+        </div>
+      </div>
+      <div>
+        <h3>Получение животного по id</h3>
+        <input 
+          type="number" 
+          style={{
+            marginBottom: '1rem'
+          }}
+          onChange={(e) => {
+            if(!Number.isNaN(+e.target.value)){
+              setPetId(+e.target.value)
+            }
+          }}
+        />
+        {loadingPet && (
+          <div>
+            loading...
+          </div>
+        )}
+        {(!loadingPet && dataPet) && (
+          <div>
+            <PetItem pet={dataPet} />
+          </div>
+        )}
+        {errorPet && (
+          <div>error: {errorPet.message}</div>
+        )}
+        <div>
+          <button 
+            onClick={() => {
+              getPetByIdFx(petId);
+            }}
+            style={{
+              marginTop: '1rem',
+              marginRight: '1rem'
+            }}
+          >
+            Получить животного
+          </button>
+          <button onClick={() => {
+            updatePetBuId(null);
+          }}>
+            Очистить животное
           </button>
         </div>
       </div>

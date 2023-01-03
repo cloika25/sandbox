@@ -1,11 +1,28 @@
 import { combine, createEffect, createEvent, createStore } from "effector";
-import type { Pet } from '../types'
+import type { Pet } from '../types';
 
 export const $pets = createStore<Pet[]>([]);
 
-/** События со стором */
+/** Событие получения списка */
 export const update = createEvent<Pet[]>();
-export const getPetById = createEvent<Pet>();
+
+/** Эффект для получения списка животных */
+export const updatePetFx = createEffect<void, Pet[], Error>();
+/** Ошибка получения списка животных */
+export const $updateError = createStore<Error | null>(null);
+$updateError
+  .on(updatePetFx.fail, (_, { error }) => error)
+  .reset(updatePetFx.done);
+/** Статус получения списка животных */
+export const $petsUpdateStatus = combine({
+  loading: updatePetFx.pending,
+  error: $updateError,
+  data: $pets,
+});
+
+export const $pet = createStore<Pet | null>(null);
+/** Событие получения по id */
+export const updatePetBuId = createEvent<Pet | null>();
 
 /** Эффект для получения животного по id */
 export const getPetByIdFx = createEffect<number, Pet, Error>();
@@ -18,19 +35,5 @@ $fetchByIdError
 export const $petGetByIdStatus = combine({
   loading: getPetByIdFx.pending,
   error: $fetchByIdError,
-  data: $pets,
-})
-
-/** Эффект для получения списка животных */
-export const updatePetFx = createEffect<void, Pet[], Error>();
-/** Ошибка получения списка животных */
-export const $updateError = createStore<Error | null>(null);
-$updateError
-  .on(updatePetFx.fail, (_, { error }) => error)
-  .reset(updatePetFx.done)
-/** Статус получения списка животных */
-export const $petsUpdateStatus = combine({
-  loading: updatePetFx.pending,
-  error: $updateError,
-  data: $pets,
+  data: $pet,
 })
