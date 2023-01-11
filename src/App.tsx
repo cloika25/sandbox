@@ -3,6 +3,7 @@ import './App.css'
 import { MainPage } from './views/MainPage'
 import { AutocompleteRouter } from './Autocomplete/router'
 import { EffectorRouter } from './Effector/router'
+import { DialogRouter } from './Dialog/router'
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: '/autocomplete/*',
     element: <AutocompleteRouter />,
+  },
+  {
+    path: '/dialog/*',
+    element: <DialogRouter />
   },
   {
     path: '/effector/*',

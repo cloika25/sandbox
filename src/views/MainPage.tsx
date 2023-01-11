@@ -11,6 +11,9 @@ export const MainPage: React.FC = () => {
         <li>
           <Link to="/effector">Изучение Effector</Link>
         </li>
+        <li>
+          <Link to="/dialog">Тег {`<Dialog />`}</Link>
+        </li>
       </ul>
 
       <span>каминг сун</span>
