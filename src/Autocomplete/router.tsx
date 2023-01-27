@@ -1,5 +1,6 @@
-import { useRoutes } from 'react-router-dom'
-import { StartPage } from './StartPage'
+import { useRoutes } from 'react-router-dom';
+import React from 'react';
+import { StartPage } from './StartPage';
 import { Off } from './Off';
 import { Named } from './Named';
 import { SimpleLogin } from './SimpleLogin';
@@ -7,17 +8,17 @@ import { SimpleLogin } from './SimpleLogin';
 export const AutocompleteRouter = () => {
   const router = useRoutes([{
     path: '/',
-    element: <StartPage/>
+    element: <StartPage />,
   }, {
     path: '/off',
-    element: <Off/>
+    element: <Off />,
   }, {
     path: '/named',
-    element: <Named/>
-  },{
+    element: <Named />,
+  }, {
     path: '/simpleLogin',
-    element: <SimpleLogin/>
-  }])
-  
-  return router
-}
+    element: <SimpleLogin />,
+  }]);
+
+  return router;
+};

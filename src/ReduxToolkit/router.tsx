@@ -1,11 +1,11 @@
 import { useRoutes } from 'react-router-dom';
 import React from 'react';
-import DialogView from './DialogView';
+import ReduxToolkitExample from './ReduxToolkitExample';
 
-export const DialogRouter = () => {
+export const ReduxToolkitRouter = () => {
   const router = useRoutes([{
     path: '/',
-    element: <DialogView />,
+    element: <ReduxToolkitExample />,
   }]);
 
   return router;

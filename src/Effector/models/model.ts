@@ -1,4 +1,9 @@
-import { combine, createEffect, createEvent, createStore } from "effector";
+import {
+  combine,
+  createEffect,
+  createEvent,
+  createStore,
+} from 'effector';
 import type { Pet } from '../types';
 
 export const $pets = createStore<Pet[]>([]);
@@ -16,6 +21,7 @@ $updateError
   .on(updatePetFx.fail, (_, { error }) => error)
   .reset(clearErrorList)
   .reset(updatePetFx.done);
+
 /** Статус получения списка животных */
 export const $petsUpdateStatus = combine({
   loading: updatePetFx.pending,
@@ -36,10 +42,11 @@ export const clearErrorGetById = createEvent<void>();
 $fetchByIdError
   .on(getPetByIdFx.fail, (_, { error }) => error)
   .reset(clearErrorGetById)
-  .reset(getPetByIdFx.done)
+  .reset(getPetByIdFx.done);
+
 /** Статус получения по id */
 export const $petGetByIdStatus = combine({
   loading: getPetByIdFx.pending,
   error: $fetchByIdError,
   data: $pet,
-})
+});

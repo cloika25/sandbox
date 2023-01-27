@@ -30,9 +30,10 @@ module.exports = {
     'import',
     'import-newlines',
   ],
-  ignorePatterns: ['*.g.ts'],
+  ignorePatterns: ['*.g.ts', '*.d.ts'],
   rules: {
     'no-unused-vars': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

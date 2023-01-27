@@ -1,15 +1,39 @@
-export const Named = () => {
-  return (
-    <form className="col" action="javascript:console.log('submit')">
-      <label htmlFor="firstName">Имя</label>
-      <input id="firstName" autoComplete="given-name" type="text" name="firstName"></input>
-      <label htmlFor="lastName">Фамилия</label>
-      <input id="lastName" autoComplete="family-name" type="text" name="lastName"></input>
-      <label htmlFor="middleName">Отчество</label>
-      <input id="middleName" autoComplete="additional-name" type="text" name="middleName"></input>
-      <label htmlFor="nickname">Никнейм</label>
-      <input id="nickname" autoComplete="nickname" type="text" name="nickname"></input>
-      <button type="submit">submit</button>
-    </form>
-  )
-} 
+import React from 'react';
+
+export const Named = () => (
+  <form
+    // eslint-disable-next-line no-script-url
+    action="javascript:console.log('submit')"
+    className="col"
+  >
+    <label htmlFor="firstName">Имя</label>
+    <input
+      autoComplete="given-name"
+      id="firstName"
+      name="firstName"
+      type="text"
+    />
+    <label htmlFor="lastName">Фамилия</label>
+    <input
+      autoComplete="family-name"
+      id="lastName"
+      name="lastName"
+      type="text"
+    />
+    <label htmlFor="middleName">Отчество</label>
+    <input
+      autoComplete="additional-name"
+      id="middleName"
+      name="middleName"
+      type="text"
+    />
+    <label htmlFor="nickname">Никнейм</label>
+    <input
+      autoComplete="nickname"
+      id="nickname"
+      name="nickname"
+      type="text"
+    />
+    <button type="submit">submit</button>
+  </form>
+);

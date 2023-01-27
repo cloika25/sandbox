@@ -1,9 +1,11 @@
-import { createBrowserRouter,  Navigate,  RouterProvider } from 'react-router-dom'
-import './App.css'
-import { MainPage } from './views/MainPage'
-import { AutocompleteRouter } from './Autocomplete/router'
-import { EffectorRouter } from './Effector/router'
-import { DialogRouter } from './Dialog/router'
+import './App.css';
+import React from 'react';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { MainPage } from './views/MainPage';
+import { AutocompleteRouter } from './Autocomplete/router';
+import { EffectorRouter } from './Effector/router';
+import { DialogRouter } from './Dialog/router';
+import { ReduxToolkitRouter } from './ReduxToolkit/router';
 
 const router = createBrowserRouter([
   {
@@ -16,24 +18,29 @@ const router = createBrowserRouter([
   },
   {
     path: '/dialog/*',
-    element: <DialogRouter />
+    element: <DialogRouter />,
   },
   {
     path: '/effector/*',
-    element: <EffectorRouter />
+    element: <EffectorRouter />,
+  },
+  {
+    path: '/reduxToolkit/*',
+    element: <ReduxToolkitRouter />,
   },
   {
     path: '*',
-    element: <Navigate to="/" replace />
-  }
-])
+    element: <Navigate
+      to="/"
+      replace
+    />,
+  },
+]);
 
-const App: React.FC = () =>  {
-  return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
-  )
-}
+const App: React.FC = () => (
+  <div className="App">
+    <RouterProvider router={router} />
+  </div>
+);
 
-export default App
+export default App;

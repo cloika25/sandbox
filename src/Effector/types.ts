@@ -15,10 +15,10 @@ export enum Statuses {
 }
 
 export type Pet = {
-  id: number,
-  name: string,
-  category: Category,
-  photoUrls: string[],
-  tags: Tag[],
-  status: keyof Statuses
+  id: number;
+  name: string;
+  category: Category;
+  photoUrls: string[];
+  tags: Tag[];
+  status: keyof Statuses;
 }
