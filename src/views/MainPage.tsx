@@ -20,6 +20,9 @@ export const MainPage: React.FC = () => (
       <li>
         <Link to="/reduxToolkit">Redux Toolkit</Link>
       </li>
+      <li>
+        <Link to="/shareApi">WEB Share API</Link>
+      </li>
     </ul>
 
     <span>каминг сун</span>

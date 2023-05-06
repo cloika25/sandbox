@@ -7,6 +7,7 @@ import { EffectorRouter } from './Effector/router';
 import { DialogRouter } from './Dialog/router';
 import { ReduxToolkitRouter } from './ReduxToolkit/router';
 import { NotificationRouter } from './Notification/router';
+import { ShareApiRouter } from './ShareApi/router';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: '/notification/*',
     element: <NotificationRouter />,
+  },
+  {
+    path: '/shareApi/*',
+    element: <ShareApiRouter />,
   },
   {
     path: '*',
