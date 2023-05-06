@@ -6,6 +6,7 @@ import { AutocompleteRouter } from './Autocomplete/router';
 import { EffectorRouter } from './Effector/router';
 import { DialogRouter } from './Dialog/router';
 import { ReduxToolkitRouter } from './ReduxToolkit/router';
+import { NotificationRouter } from './Notification/router';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/reduxToolkit/*',
     element: <ReduxToolkitRouter />,
+  },
+  {
+    path: '/notification/*',
+    element: <NotificationRouter />,
   },
   {
     path: '*',

@@ -16,6 +16,12 @@ const DialogView = () => {
       </button>
       <dialog ref={dialogRef1}>
         content
+        <div onClick={() => {
+          dialogRef1.current?.close();
+        }}
+        >
+          close dialog
+        </div>
       </dialog>
       <div style={{ position: 'relative' }}>
         <button

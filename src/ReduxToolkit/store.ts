@@ -1,18 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Pet } from '../Effector/types';
+import { configureStore } from '@reduxjs/toolkit';
+import petsReducer from './petsSlice';
 
-export interface ReduxStore {
-  pets: Pet[];
-}
-
-const initialState: ReduxStore = {
-  pets: [],
-};
-
-export const petsSlice = createSlice({
-  name: 'Pets list',
-  initialState,
-  reducers: {
-
+export const store = configureStore({
+  reducer: {
+    petsSlice: petsReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

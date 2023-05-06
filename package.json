@@ -7,7 +7,7 @@
     "extends": "react-app"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
@@ -21,6 +21,7 @@
     "effector-react": "^22.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.5",
     "redux": "^4.2.0"
   },
