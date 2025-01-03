@@ -10,5 +10,3 @@
 pnpm install
 pnpm run serve
 ```
-
-## Навигация
