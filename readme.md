@@ -12,5 +12,3 @@ pnpm run serve
 ```
 
 ## Навигация
-
-[Пример на Effector](https://github.com/cloika25/sandbox/tree/main/src/Effector)
