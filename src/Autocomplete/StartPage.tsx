@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
-import React from 'react';
+import { Link } from "react-router";
+import React from "react";
 
 export const StartPage: React.FC = () => (
   <div>
     <span>
-      {'Проверка разных комбинаций значений параметра "autocomplete" у тега <input />'}
+      {
+        'Проверка разных комбинаций значений параметра "autocomplete" у тега <input />'
+      }
     </span>
     <ul>
       <li>

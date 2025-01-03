@@ -7,8 +7,8 @@
 ## Как запустить
 
 ```
-npm install
-npm run serve
+pnpm install
+pnpm run serve
 ```
 
 ## Навигация

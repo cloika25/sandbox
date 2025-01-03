@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import React from 'react';
+import { Link } from "react-router";
+import React from "react";
 
 export const MainPage: React.FC = () => (
   <div>
@@ -14,7 +14,7 @@ export const MainPage: React.FC = () => (
       <li>
         <Link to="/dialog">
           Тег
-          {'<Dialog />'}
+          {"<Dialog />"}
         </Link>
       </li>
       <li>
