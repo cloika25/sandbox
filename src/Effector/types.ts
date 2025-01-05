@@ -1,18 +1,20 @@
 export type Category = {
   id: number;
   name: string;
-}
+};
 
 export type Tag = {
   id: number;
   name: string;
-}
+};
 
-export enum Statuses {
-  available = 'available',
-  pending = 'pending',
-  sold = 'sold'
-}
+export const Statuses = {
+  available: "available",
+  pending: "pending",
+  sold: "sold",
+} as const;
+
+export type StatusesKeys = keyof typeof Statuses;
 
 export type Pet = {
   id: number;
@@ -20,5 +22,5 @@ export type Pet = {
   category: Category;
   photoUrls: string[];
   tags: Tag[];
-  status: keyof Statuses;
-}
+  status: StatusesKeys;
+};

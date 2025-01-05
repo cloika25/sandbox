@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { Pet } from '../Effector/types';
-import mock from './mock.json';
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { Pet } from "../Effector/types";
+import { mock } from "./mock";
 
 export interface PetsListState {
   count: number;
@@ -14,7 +14,7 @@ const initialState: PetsListState = {
 };
 
 export const petsSlice = createSlice({
-  name: 'petsStore',
+  name: "petsStore",
   initialState,
   reducers: {
     deleteHandle: (state, action: PayloadAction<number>) => {

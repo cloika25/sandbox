@@ -1,35 +1,28 @@
 import { Link } from "react-router";
-import React from "react";
+import { Routes } from "../routes";
 
-export const MainPage: React.FC = () => (
+export const MainPage = () => (
   <div>
     <div>Песочница одного фронтендера</div>
     <ul>
       <li>
-        <Link to="/autocomplete">Тесты параметра autocomplete</Link>
+        <Link to={Routes.autocomplete}>Тесты параметра autocomplete</Link>
       </li>
       <li>
-        <Link to="/effector">Изучение Effector</Link>
+        <Link to={Routes.effector}>Изучение Effector</Link>
       </li>
       <li>
-        <Link to="/dialog">
+        <Link to={Routes.dialog}>
           Тег
           {"<Dialog />"}
         </Link>
       </li>
       <li>
-        <Link to="/reduxToolkit">Redux Toolkit</Link>
+        <Link to={Routes.reduxToolkit}>Redux Toolkit</Link>
       </li>
       <li>
-        <Link to="/shareApi">WEB Share API</Link>
+        <Link to={Routes.shareApi}>WEB Share API</Link>
       </li>
-    </ul>
-
-    <span>каминг сун</span>
-    <ul>
-      <li title="но это не точно">аналог твитера на JQuery</li>
-      <li>залезть в Redux по самые помидоры</li>
-      <li>css modules</li>
     </ul>
   </div>
 );

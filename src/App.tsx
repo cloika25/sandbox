@@ -1,46 +1,46 @@
-import "./App.css";
-import React from "react";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
-import { MainPage } from "./views/MainPage";
 import { AutocompleteRouter } from "./Autocomplete/router";
-import { EffectorRouter } from "./Effector/router";
 import { DialogRouter } from "./Dialog/router";
-import { ReduxToolkitRouter } from "./ReduxToolkit/router";
+import { EffectorRouter } from "./Effector/router";
 import { NotificationRouter } from "./Notification/router";
+import { ReduxToolkitRouter } from "./ReduxToolkit/router";
 import { ShareApiRouter } from "./ShareApi/router";
+import { MainPage } from "./views/MainPage";
+import "./App.css";
+import { Routes } from "./routes";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: Routes.mainPage,
     element: <MainPage />,
   },
   {
-    path: "/autocomplete/*",
+    path: Routes.autocomplete + "/*",
     element: <AutocompleteRouter />,
   },
   {
-    path: "/dialog/*",
+    path: Routes.dialog + "/*",
     element: <DialogRouter />,
   },
   {
-    path: "/effector/*",
+    path: Routes.effector + "/*",
     element: <EffectorRouter />,
   },
   {
-    path: "/reduxToolkit/*",
+    path: Routes.reduxToolkit + "/*",
     element: <ReduxToolkitRouter />,
   },
   {
-    path: "/notification/*",
+    path: Routes.notification + "/*",
     element: <NotificationRouter />,
   },
   {
-    path: "/shareApi/*",
+    path: Routes.shareApi + "/*",
     element: <ShareApiRouter />,
   },
   {
     path: "*",
-    element: <Navigate to="/" replace />,
+    element: <Navigate to={Routes.mainPage} replace />,
   },
 ]);
 
