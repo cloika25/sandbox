@@ -6,8 +6,8 @@ import { NotificationRouter } from "./Notification/router";
 import { ReduxToolkitRouter } from "./ReduxToolkit/router";
 import { ShareApiRouter } from "./ShareApi/router";
 import { MainPage } from "./views/MainPage";
-import "./App.css";
 import { Routes } from "./routes";
+import { Layout } from "./Layout";
 
 const router = createBrowserRouter([
   {
@@ -16,27 +16,51 @@ const router = createBrowserRouter([
   },
   {
     path: Routes.autocomplete + "/*",
-    element: <AutocompleteRouter />,
+    element: (
+      <Layout>
+        <AutocompleteRouter />
+      </Layout>
+    ),
   },
   {
     path: Routes.dialog + "/*",
-    element: <DialogRouter />,
+    element: (
+      <Layout>
+        <DialogRouter />
+      </Layout>
+    ),
   },
   {
     path: Routes.effector + "/*",
-    element: <EffectorRouter />,
+    element: (
+      <Layout>
+        <EffectorRouter />
+      </Layout>
+    ),
   },
   {
     path: Routes.reduxToolkit + "/*",
-    element: <ReduxToolkitRouter />,
+    element: (
+      <Layout>
+        <ReduxToolkitRouter />
+      </Layout>
+    ),
   },
   {
     path: Routes.notification + "/*",
-    element: <NotificationRouter />,
+    element: (
+      <Layout>
+        <NotificationRouter />
+      </Layout>
+    ),
   },
   {
     path: Routes.shareApi + "/*",
-    element: <ShareApiRouter />,
+    element: (
+      <Layout>
+        <ShareApiRouter />
+      </Layout>
+    ),
   },
   {
     path: "*",
@@ -44,10 +68,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App: React.FC = () => (
-  <div className="App">
-    <RouterProvider router={router} />
-  </div>
-);
+const App = () => <RouterProvider router={router} />;
 
 export default App;

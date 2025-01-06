@@ -1,5 +1,5 @@
 import { useUnit } from "effector-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   $petGetByIdStatus,
   $petsUpdateStatus,
@@ -11,7 +11,7 @@ import {
 } from "./models/model";
 import { PetItem, PetList } from "./PetList";
 
-const PetStore: React.FC = () => {
+const PetStore = () => {
   const {
     loading: loadingList,
     error: errorList,

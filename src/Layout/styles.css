@@ -1,0 +1,22 @@
+#layout {
+    --aside-width: max(10vw, 150px);
+}
+
+aside {
+    width: var(--aside-width);
+    border-right: 1px solid currentColor;
+    padding: 10px;
+}
+
+#contentWrapper {
+    width: calc(100vw - var(--aside-width));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+#content {
+    overflow: scroll;
+    max-height: calc(100vh - 4rem);
+}

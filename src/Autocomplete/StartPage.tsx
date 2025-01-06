@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Routes } from "../routes";
 
 export const StartPage = () => (
-  <div className={"flex flex-col gap-2"}>
+  <div className="flex flex-col gap-2 items-center text-center">
     <span className={"flex flex-col gap-2 items-center"}>
       Проверка разных комбинаций значений параметра "autocomplete" у тега input
       <input className={"border-2 w-max"} />

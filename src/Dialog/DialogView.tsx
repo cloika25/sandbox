@@ -1,11 +1,23 @@
-import React, { useRef } from "react";
+import React, { MouseEventHandler, useRef } from "react";
 
 const DialogView = () => {
   const dialogRef1 = useRef<HTMLDialogElement>(null);
   const dialogRef2 = useRef<HTMLDialogElement>(null);
 
+  const onClickHandle: MouseEventHandler<HTMLDialogElement> = ({
+    currentTarget,
+    target,
+  }) => {
+    const dialogElement = currentTarget;
+    const isClickedOnBackDrop = target === dialogElement;
+
+    if (isClickedOnBackDrop) {
+      dialogRef1.current?.close();
+    }
+  };
+
   return (
-    <div className="flex">
+    <div className="flex gap-2">
       <button
         onClick={() => {
           dialogRef1.current?.showModal();
@@ -14,16 +26,20 @@ const DialogView = () => {
       >
         show modal
       </button>
-      <dialog ref={dialogRef1}>
-        content
-        <div
-          onClick={() => {
-            dialogRef1.current?.close();
-          }}
-        >
-          close dialog
+
+      <dialog ref={dialogRef1} onClick={onClickHandle}>
+        <div className="flex flex-col gap-4 p-2">
+          content
+          <button
+            onClick={() => {
+              dialogRef1.current?.close();
+            }}
+          >
+            close dialog
+          </button>
         </div>
       </dialog>
+
       <div className="relative">
         <button
           onClick={() => {

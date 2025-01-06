@@ -36,10 +36,16 @@ export const PetItem = ({ pet }: PetItemProps) => (
   </div>
 );
 
-export const PetList = ({ pets }: PetListProps) => (
-  <div className="flex flex-col gap-4">
-    {pets.map((pet) => (
-      <PetItem key={pet.id} pet={pet} />
-    ))}
-  </div>
-);
+export const PetList = ({ pets }: PetListProps) => {
+  if (!pets?.length) {
+    return null;
+  }
+
+  return (
+    <div className="flex flex-col gap-4">
+      {pets.map((pet) => (
+        <PetItem key={pet.id} pet={pet} />
+      ))}
+    </div>
+  );
+};
