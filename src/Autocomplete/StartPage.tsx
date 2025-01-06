@@ -1,22 +1,27 @@
 import { Link } from "react-router";
-import React from "react";
+import { Routes } from "../routes";
 
-export const StartPage: React.FC = () => (
-  <div>
-    <span>
-      {
-        'Проверка разных комбинаций значений параметра "autocomplete" у тега <input />'
-      }
+export const StartPage = () => (
+  <div className={"flex flex-col gap-2"}>
+    <span className={"flex flex-col gap-2 items-center"}>
+      Проверка разных комбинаций значений параметра "autocomplete" у тега input
+      <input className={"border-2 w-max"} />
     </span>
     <ul>
       <li>
-        <Link to="/autocomplete/off">autocomplete=&quot;off&quot;</Link>
+        <Link to={Routes.autocomplete + "/off"}>
+          autocomplete=&quot;off&quot;
+        </Link>
       </li>
       <li>
-        <Link to="/autocomplete/named">именованные autocomplete</Link>
+        <Link to={Routes.autocomplete + "/named"}>
+          именованные autocomplete
+        </Link>
       </li>
       <li>
-        <Link to="/autocomplete/simpleLogin">простая форма логина</Link>
+        <Link to={Routes.autocomplete + "/simpleLogin"}>
+          простая форма логина
+        </Link>
       </li>
     </ul>
   </div>

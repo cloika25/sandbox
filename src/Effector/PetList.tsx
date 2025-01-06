@@ -1,4 +1,3 @@
-import React from "react";
 import { Pet, Statuses, StatusesKeys } from "./types";
 
 export interface PetListProps {
@@ -16,34 +15,29 @@ const convertPetStatus = (status: StatusesKeys) => {
   return status;
 };
 
-export const PetItem: React.FC<PetItemProps> = ({ pet }) => (
-  <div style={{ textAlign: "left", marginBottom: "1rem" }}>
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+export const PetItem = ({ pet }: PetItemProps) => (
+  <div className="flex flex-col gap-2 border rounded-lg p-1 min-w-[500px]">
+    <div className="flex justify-between">
       <span>Идентификатор питомца: </span>
       <div>{pet.id}</div>
     </div>
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className="flex justify-between">
       <span>Имя питомца: </span>
       <div>{pet.name}</div>
     </div>
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className="flex justify-between">
       <span>Категория: </span>
-      <div>{pet.category.name}</div>
+      <div>{pet.category?.name}</div>
     </div>
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className="flex justify-between">
       <span>Статус: </span>
       <div>{convertPetStatus(pet.status)}</div>
     </div>
   </div>
 );
 
-export const PetList: React.FC<PetListProps> = ({ pets }) => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-    }}
-  >
+export const PetList = ({ pets }: PetListProps) => (
+  <div className="flex flex-col gap-4">
     {pets.map((pet) => (
       <PetItem key={pet.id} pet={pet} />
     ))}

@@ -1,39 +1,27 @@
-import React from 'react';
+import React from "react";
 
 export const Off: React.FC = () => (
   <form
-    // eslint-disable-next-line no-script-url
-    action="javascript:console.log('submit')"
-    className="col"
+    autoComplete="off"
+    className="flex flex-col gap-2"
+    onSubmit={(e) => e.preventDefault()}
   >
     <label htmlFor="firstName">Имя</label>
-    <input
-      autoComplete="off"
-      id="firstName"
-      name="firstName"
-      type="text"
-    />
+    <input className="border-2" id="firstName" name="name" type="text" />
     <label htmlFor="lastName">Фамилия</label>
-    <input
-      autoComplete="off"
-      id="lastName"
-      name="lastName"
-      type="text"
-    />
+    <input className="border-2" id="lastName" name="family-name" type="text" />
     <label htmlFor="middleName">Отчество</label>
     <input
-      autoComplete="off"
+      className="border-2"
       id="middleName"
-      name="middleName"
+      name="additional-name"
       type="text"
     />
     <label htmlFor="nickname">Никнейм</label>
-    <input
-      autoComplete="off"
-      id="nickname"
-      name="nickname"
-      type="text"
-    />
-    <button type="submit">submit</button>
+    <input className="border-2" id="nickname" name="nickname" type="text" />
+    <div className="flex gap-1">
+      <button type="submit">жмяк</button>
+      <button type="reset">сброс</button>
+    </div>
   </form>
 );

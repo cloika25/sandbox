@@ -1,21 +1,22 @@
-import React from 'react';
-
 export const SimpleLogin: React.FC = () => (
-  <form
-    // eslint-disable-next-line no-script-url
-    action="javascript:console.log('submit')"
-    className="col"
-  >
+  <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
     <label htmlFor="nickname">Никнейм</label>
     <input
+      autoComplete="username"
+      className="border-2"
       id="nickname"
       type="text"
     />
     <label htmlFor="new-password">Пароль</label>
     <input
+      autoComplete="current-password"
+      className="border-2"
       id="new-password"
       type="password"
     />
-    <button type="submit">Submit</button>
+    <div className="flex gap-2">
+      <button type="submit">жмяк</button>
+      <button type="reset">сброс</button>
+    </div>
   </form>
 );

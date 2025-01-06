@@ -1,5 +1,5 @@
-import { useStore } from 'effector-react';
-import React, { useState } from 'react';
+import { useUnit } from "effector-react";
+import React, { useState } from "react";
 import {
   $petGetByIdStatus,
   $petsUpdateStatus,
@@ -8,19 +8,28 @@ import {
   update,
   updatePetBuId,
   updatePetFx,
-} from './models/model';
-import { PetItem, PetList } from './PetList';
+} from "./models/model";
+import { PetItem, PetList } from "./PetList";
 
 const PetStore: React.FC = () => {
-  const { loading: loadingList, error: errorList, data: dataList } = useStore($petsUpdateStatus);
-  const { loading: loadingPet, error: errorPet, data: dataPet } = useStore($petGetByIdStatus);
+  const {
+    loading: loadingList,
+    error: errorList,
+    data: dataList,
+  } = useUnit($petsUpdateStatus);
+
+  const {
+    loading: loadingPet,
+    error: errorPet,
+    data: dataPet,
+  } = useUnit($petGetByIdStatus);
 
   const [petId, setPetId] = useState(0);
 
   return (
-    <div>
-      <div style={{ marginBottom: '2rem' }}>
-        <span>{'В качестве api использовано '}</span>
+    <div className="flex flex-col gap-8 items-center">
+      <span>
+        {`В качестве api использовано `}
         <a
           href="https://petstore3.swagger.io/#/"
           rel="noreferrer"
@@ -28,82 +37,56 @@ const PetStore: React.FC = () => {
         >
           https://petstore3.swagger.io/#/
         </a>
+      </span>
+      <h3>Получение списка животных</h3>
+      {loadingList && <div> loading... </div>}
+      {!loadingList && <PetList pets={dataList} />}
+      {errorList && <div>{`error: ${errorList.message}`}</div>}
+      <div className="flex gap-2">
+        <button
+          onClick={() => {
+            updatePetFx();
+          }}
+          type="button"
+        >
+          Получить список
+        </button>
+        <button
+          onClick={() => {
+            update([]);
+          }}
+          type="button"
+        >
+          Очистить список
+        </button>
       </div>
-      <div>
-        <h3>Получение списка животных</h3>
-        {loadingList && (
-          <div> loading... </div>
-        )}
-        {!loadingList && (
-          <PetList pets={dataList} />
-        )}
-        {errorList && (
-          <div>
-            error:
-            {' '}
-            {errorList.message}
-          </div>
-        )}
+      <h3>Получение животного по id</h3>
+      {loadingPet && <div>loading...</div>}
+      {!loadingPet && dataPet && (
         <div>
-          <button
-            onClick={() => {
-              updatePetFx();
-            }}
-            style={{
-              marginTop: '1rem',
-              marginRight: '1rem',
-            }}
-            type="button"
-          >
-            Получить список
-          </button>
-          <button
-            onClick={() => {
-              update([]);
-            }}
-            type="button"
-          >
-            Очистить список
-          </button>
+          <PetItem pet={dataPet} />
         </div>
-      </div>
-      <div>
-        <h3>Получение животного по id</h3>
+      )}
+      {errorPet && (
+        <div>
+          error:
+          {errorPet.message}
+        </div>
+      )}
+      <div className="flex flex-col gap-2 items-center">
         <input
+          className="border-2 w-min"
           onChange={(e) => {
             if (!Number.isNaN(+e.target.value)) {
               setPetId(+e.target.value);
             }
           }}
-          style={{
-            marginBottom: '1rem',
-          }}
           type="number"
         />
-        {loadingPet && (
-          <div>
-            loading...
-          </div>
-        )}
-        {(!loadingPet && dataPet) && (
-          <div>
-            <PetItem pet={dataPet} />
-          </div>
-        )}
-        {errorPet && (
-          <div>
-            error:
-            {errorPet.message}
-          </div>
-        )}
-        <div>
+        <div className="flex gap-2">
           <button
             onClick={() => {
               getPetByIdFx(petId);
-            }}
-            style={{
-              marginTop: '1rem',
-              marginRight: '1rem',
             }}
             type="button"
           >

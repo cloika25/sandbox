@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
 const DialogView = () => {
   const dialogRef1 = useRef<HTMLDialogElement>(null);
   const dialogRef2 = useRef<HTMLDialogElement>(null);
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="flex">
       <button
         onClick={() => {
           dialogRef1.current?.showModal();
@@ -16,14 +16,15 @@ const DialogView = () => {
       </button>
       <dialog ref={dialogRef1}>
         content
-        <div onClick={() => {
-          dialogRef1.current?.close();
-        }}
+        <div
+          onClick={() => {
+            dialogRef1.current?.close();
+          }}
         >
           close dialog
         </div>
       </dialog>
-      <div style={{ position: 'relative' }}>
+      <div className="relative">
         <button
           onClick={() => {
             if (dialogRef2.current?.open) {

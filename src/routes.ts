@@ -1,17 +1,17 @@
-export const baseUrl = '/sandbox'
+export const baseUrl = "/sandbox";
 
 export const Routes = {
   mainPage: baseUrl,
 
-  autocomplete: baseUrl + '/autocomplete',
+  autocomplete: baseUrl + "/autocomplete",
 
-  dialog: baseUrl + '/dialog',
+  dialog: baseUrl + "/dialog",
 
-  effector: baseUrl + '/effector',
+  effector: baseUrl + "/effector",
 
-  reduxToolkit: baseUrl + '/reduxToolkit',
+  reduxToolkit: baseUrl + "/reduxToolkit",
 
-  notification: baseUrl + '/notification',
+  notification: baseUrl + "/notification",
 
-  shareApi: baseUrl + '/shareApi'
-}
+  shareApi: baseUrl + "/shareApi",
+};

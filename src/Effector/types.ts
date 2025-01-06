@@ -18,7 +18,7 @@ export type StatusesKeys = keyof typeof Statuses;
 
 export type Pet = {
   id: number;
-  name: string;
+  name?: string;
   category: Category;
   photoUrls: string[];
   tags: Tag[];

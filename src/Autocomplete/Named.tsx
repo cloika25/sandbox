@@ -1,14 +1,9 @@
-import React from 'react';
-
 export const Named = () => (
-  <form
-    // eslint-disable-next-line no-script-url
-    action="javascript:console.log('submit')"
-    className="col"
-  >
+  <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
     <label htmlFor="firstName">Имя</label>
     <input
       autoComplete="given-name"
+      className="border-2"
       id="firstName"
       name="firstName"
       type="text"
@@ -16,6 +11,7 @@ export const Named = () => (
     <label htmlFor="lastName">Фамилия</label>
     <input
       autoComplete="family-name"
+      className="border-2"
       id="lastName"
       name="lastName"
       type="text"
@@ -23,6 +19,7 @@ export const Named = () => (
     <label htmlFor="middleName">Отчество</label>
     <input
       autoComplete="additional-name"
+      className="border-2"
       id="middleName"
       name="middleName"
       type="text"
@@ -30,10 +27,14 @@ export const Named = () => (
     <label htmlFor="nickname">Никнейм</label>
     <input
       autoComplete="nickname"
+      className="border-2"
       id="nickname"
       name="nickname"
       type="text"
     />
-    <button type="submit">submit</button>
+    <div className="flex gap-2">
+      <button type="submit">жмяк</button>
+      <button type="reset">сбросить</button>
+    </div>
   </form>
 );
