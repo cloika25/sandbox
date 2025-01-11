@@ -1,20 +1,15 @@
-import { useRoutes } from "react-router";
-import React from "react";
 import { Provider } from "react-redux";
 import ReduxToolkitExample from "./ReduxToolkitExample";
 import { store } from "./store";
+import { Routes } from "../routes";
 
-export const ReduxToolkitRouter = () => {
-  const router = useRoutes([
-    {
-      path: "/",
-      element: (
-        <Provider store={store}>
-          <ReduxToolkitExample />
-        </Provider>
-      ),
-    },
-  ]);
-
-  return router;
-};
+export const ReduxToolkitChildrenRouter = [
+  {
+    path: Routes.reduxToolkit,
+    element: (
+      <Provider store={store}>
+        <ReduxToolkitExample />
+      </Provider>
+    ),
+  },
+];

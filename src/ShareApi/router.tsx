@@ -1,14 +1,10 @@
-import { useRoutes } from "react-router";
 import React from "react";
 import { ShareApiExample } from ".";
+import { Routes } from "../routes";
 
-export const ShareApiRouter = () => {
-  const router = useRoutes([
-    {
-      path: "/",
-      element: <ShareApiExample />,
-    },
-  ]);
-
-  return router;
-};
+export const ShareApiChildrensRouter = [
+  {
+    path: Routes.shareApi,
+    element: <ShareApiExample />,
+  },
+];

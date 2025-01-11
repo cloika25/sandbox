@@ -1,13 +1,17 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
-import { AutocompleteRouter } from "./Autocomplete/router";
-import { DialogRouter } from "./Dialog/router";
-import { EffectorRouter } from "./Effector/router";
-import { NotificationRouter } from "./Notification/router";
-import { ReduxToolkitRouter } from "./ReduxToolkit/router";
-import { ShareApiRouter } from "./ShareApi/router";
+// import { DialogRouter } from "./Dialog/router";
+// import { EffectorRouter } from "./Effector/router";
+// import { NotificationRouter } from "./Notification/router";
+// import { ReduxToolkitRouter } from "./ReduxToolkit/router";
+// import { ShareApiRouter } from "./ShareApi/router";
 import { MainPage } from "./views/MainPage";
 import { Routes } from "./routes";
 import { Layout } from "./Layout";
+import { AutocompleteChildrensRouter } from "./Autocomplete/router";
+import { DialogChilderRouter } from "./Dialog/router";
+import { EffectorChildrensRouter } from "./Effector/router";
+import { ReduxToolkitChildrenRouter } from "./ReduxToolkit/router";
+import { ShareApiChildrensRouter } from "./ShareApi/router";
 
 const router = createBrowserRouter([
   {
@@ -15,52 +19,30 @@ const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
-    path: Routes.autocomplete + "/*",
-    element: (
-      <Layout>
-        <AutocompleteRouter />
-      </Layout>
-    ),
-  },
-  {
-    path: Routes.dialog + "/*",
-    element: (
-      <Layout>
-        <DialogRouter />
-      </Layout>
-    ),
-  },
-  {
-    path: Routes.effector + "/*",
-    element: (
-      <Layout>
-        <EffectorRouter />
-      </Layout>
-    ),
-  },
-  {
-    path: Routes.reduxToolkit + "/*",
-    element: (
-      <Layout>
-        <ReduxToolkitRouter />
-      </Layout>
-    ),
-  },
-  {
-    path: Routes.notification + "/*",
-    element: (
-      <Layout>
-        <NotificationRouter />
-      </Layout>
-    ),
-  },
-  {
-    path: Routes.shareApi + "/*",
-    element: (
-      <Layout>
-        <ShareApiRouter />
-      </Layout>
-    ),
+    path: Routes.mainPage,
+    element: <Layout />,
+    children: [
+      {
+        path: Routes.autocomplete,
+        children: AutocompleteChildrensRouter,
+      },
+      {
+        path: Routes.dialog,
+        children: DialogChilderRouter,
+      },
+      {
+        path: Routes.effector,
+        children: EffectorChildrensRouter,
+      },
+      {
+        path: Routes.reduxToolkit,
+        children: ReduxToolkitChildrenRouter,
+      },
+      {
+        path: Routes.shareApi,
+        children: ShareApiChildrensRouter,
+      },
+    ],
   },
   {
     path: "*",

@@ -1,17 +1,12 @@
-import { ReactNode } from "react";
 import "./styles.css";
 import { sections } from "../sections";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 import { baseUrl } from "../routes";
 
-type LayoutProps = {
-  children?: ReactNode;
-};
-
-export const Layout = ({ children }: LayoutProps) => (
+export const Layout = () => (
   <div className="flex flex-grow" id="layout">
     <aside>
-      <a href={baseUrl}>Домой</a>
+      <Link to={baseUrl}>Домой</Link>
       <ul>
         {sections.map((section) => (
           <li key={section.route}>
@@ -20,8 +15,10 @@ export const Layout = ({ children }: LayoutProps) => (
         ))}
       </ul>
     </aside>
-    <div id="contentWrapper">
-      <div id="content">{children}</div>
-    </div>
+    <main id="contentWrapper">
+      <div id="content">
+        <Outlet />
+      </div>
+    </main>
   </div>
 );

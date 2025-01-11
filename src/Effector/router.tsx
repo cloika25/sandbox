@@ -1,15 +1,10 @@
-import React from "react";
-import { useRoutes } from "react-router";
+import { Routes } from "../routes";
 import PetStore from "./PetStore";
 import "./models/init";
 
-export const EffectorRouter = () => {
-  const router = useRoutes([
-    {
-      path: "/",
-      element: <PetStore />,
-    },
-  ]);
-
-  return router;
-};
+export const EffectorChildrensRouter = [
+  {
+    path: Routes.effector,
+    element: <PetStore />,
+  },
+];

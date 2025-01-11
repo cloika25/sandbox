@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Routes } from "../routes";
+import { AutocompleteRoutes } from "./router";
 
 export const StartPage = () => (
   <div className="flex flex-col gap-2 items-center text-center">
@@ -9,19 +9,13 @@ export const StartPage = () => (
     </span>
     <ul>
       <li>
-        <Link to={Routes.autocomplete + "/off"}>
-          autocomplete=&quot;off&quot;
-        </Link>
+        <Link to={AutocompleteRoutes.off}>autocomplete=&quot;off&quot;</Link>
       </li>
       <li>
-        <Link to={Routes.autocomplete + "/named"}>
-          именованные autocomplete
-        </Link>
+        <Link to={AutocompleteRoutes.named}>именованные autocomplete</Link>
       </li>
       <li>
-        <Link to={Routes.autocomplete + "/simpleLogin"}>
-          простая форма логина
-        </Link>
+        <Link to={AutocompleteRoutes.simpleLogin}>простая форма логина</Link>
       </li>
     </ul>
   </div>

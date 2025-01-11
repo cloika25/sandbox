@@ -1,14 +1,10 @@
-import { useRoutes } from "react-router";
 import React from "react";
 import DialogView from "./DialogView";
+import { Routes } from "../routes";
 
-export const DialogRouter = () => {
-  const router = useRoutes([
-    {
-      path: "/",
-      element: <DialogView />,
-    },
-  ]);
-
-  return router;
-};
+export const DialogChilderRouter = [
+  {
+    path: Routes.dialog,
+    element: <DialogView />,
+  },
+];
