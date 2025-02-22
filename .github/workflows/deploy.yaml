@@ -3,7 +3,7 @@ name: Deploy Vite App with pnpm
 on:
   push:
     branches:
-      - main
+      - main3
 
 jobs:
   build:
