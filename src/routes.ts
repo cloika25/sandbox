@@ -1,4 +1,4 @@
-export const baseUrl = "/sandbox";
+export const baseUrl = "";
 
 export const Routes = {
   mainPage: baseUrl,
