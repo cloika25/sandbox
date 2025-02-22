@@ -13,42 +13,47 @@ import { EffectorChildrensRouter } from "./Effector/router";
 import { ReduxToolkitChildrenRouter } from "./ReduxToolkit/router";
 import { ShareApiChildrensRouter } from "./ShareApi/router";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: Routes.mainPage,
+      element: <MainPage />,
+    },
+    {
+      path: Routes.mainPage,
+      element: <Layout />,
+      children: [
+        {
+          path: Routes.autocomplete,
+          children: AutocompleteChildrensRouter,
+        },
+        {
+          path: Routes.dialog,
+          children: DialogChilderRouter,
+        },
+        {
+          path: Routes.effector,
+          children: EffectorChildrensRouter,
+        },
+        {
+          path: Routes.reduxToolkit,
+          children: ReduxToolkitChildrenRouter,
+        },
+        {
+          path: Routes.shareApi,
+          children: ShareApiChildrensRouter,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <Navigate to={Routes.mainPage} replace />,
+    },
+  ],
   {
-    path: Routes.mainPage,
-    element: <MainPage />,
+    basename: "/sandbox",
   },
-  {
-    path: Routes.mainPage,
-    element: <Layout />,
-    children: [
-      {
-        path: Routes.autocomplete,
-        children: AutocompleteChildrensRouter,
-      },
-      {
-        path: Routes.dialog,
-        children: DialogChilderRouter,
-      },
-      {
-        path: Routes.effector,
-        children: EffectorChildrensRouter,
-      },
-      {
-        path: Routes.reduxToolkit,
-        children: ReduxToolkitChildrenRouter,
-      },
-      {
-        path: Routes.shareApi,
-        children: ShareApiChildrensRouter,
-      },
-    ],
-  },
-  {
-    path: "*",
-    element: <Navigate to={Routes.mainPage} replace />,
-  },
-]);
+);
 
 const App = () => <RouterProvider router={router} />;
 
