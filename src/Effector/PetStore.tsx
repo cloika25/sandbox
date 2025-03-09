@@ -27,7 +27,7 @@ const PetStore = () => {
   const [petId, setPetId] = useState(0);
 
   return (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col gap-8 items-center text-center">
       <span>
         {`В качестве api использовано `}
         <a

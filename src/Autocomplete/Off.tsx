@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Off: React.FC = () => (
-  <div className="flex gap-3">
+  <div className="flex gap-3 flex-wrap">
     <div className="p-1 border-2 rounded">
       <span>Форма где атрибут autocomplete="off" стоит на форме</span>
       <form

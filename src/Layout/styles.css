@@ -18,6 +18,10 @@
     position: absolute;
     left: 5vw;
     top: 5vh;
+    padding: 5px;
+    background: #fff;
+    border-radius: 100%;
+    border: 1px solid grey;
 }
 
 @media (max-width: 768px) {
@@ -41,8 +45,9 @@ aside {
 }
 
 #contentWrapper {
-    width: calc(100vw - var(--aside-width));
+    max-width: calc(100vw - var(--aside-width));
     display: flex;
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
     padding: 2rem;

@@ -16,7 +16,7 @@ const convertPetStatus = (status: StatusesKeys) => {
 };
 
 export const PetItem = ({ pet }: PetItemProps) => (
-  <div className="flex flex-col gap-2 border rounded-lg p-1 min-w-[500px]">
+  <div className="flex flex-col gap-2 border rounded-lg p-1">
     <div className="flex justify-between">
       <span>Идентификатор питомца: </span>
       <div>{pet.id}</div>
