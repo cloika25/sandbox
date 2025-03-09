@@ -2,6 +2,38 @@
     --aside-width: max(10vw, 150px);
 }
 
+.menuIcon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menuDialog {
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.mobileAside {
+    display: none;
+    position: absolute;
+    left: 5vw;
+    top: 5vh;
+}
+
+@media (max-width: 768px) {
+    #layout {
+        --aside-width: 0;
+    }
+
+    aside {
+        display: none;
+    }
+
+    .mobileAside {
+        display: block;
+    }
+}
+
 aside {
     width: var(--aside-width);
     border-right: 1px solid currentColor;
@@ -19,4 +51,6 @@ aside {
 #content {
     overflow: scroll;
     max-height: calc(100vh - 4rem);
+    min-height: 10vh;
+    min-width: 40vw;
 }

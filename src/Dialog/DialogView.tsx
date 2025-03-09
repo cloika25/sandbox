@@ -17,16 +17,17 @@ const DialogView = () => {
   };
 
   return (
-    <div className="flex gap-2">
-      <button
-        onClick={() => {
-          dialogRef1.current?.showModal();
-        }}
-        type="button"
-      >
-        show modal
-      </button>
-
+    <div className="flex gap-2 min-h-[300px] items-center">
+      <div>
+        <button
+          onClick={() => {
+            dialogRef1.current?.showModal();
+          }}
+          type="button"
+        >
+          show modal
+        </button>
+      </div>
       <dialog ref={dialogRef1} onClick={onClickHandle}>
         <div className="flex flex-col gap-4 p-2">
           content
