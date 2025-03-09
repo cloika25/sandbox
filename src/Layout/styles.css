@@ -19,9 +19,14 @@
     left: 5vw;
     top: 5vh;
     padding: 5px;
-    background: #fff;
+    color: var(--color);
+    background: var(--background-color);
     border-radius: 100%;
     border: 1px solid grey;
+
+    svg {
+        fill: var(--color);
+    }
 }
 
 @media (max-width: 768px) {

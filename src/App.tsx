@@ -1,9 +1,4 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
-// import { DialogRouter } from "./Dialog/router";
-// import { EffectorRouter } from "./Effector/router";
-// import { NotificationRouter } from "./Notification/router";
-// import { ReduxToolkitRouter } from "./ReduxToolkit/router";
-// import { ShareApiRouter } from "./ShareApi/router";
 import { MainPage } from "./views/MainPage";
 import { Routes } from "./routes";
 import { Layout } from "./Layout";
