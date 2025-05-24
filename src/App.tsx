@@ -7,6 +7,7 @@ import { DialogChilderRouter } from "./Dialog/router";
 import { EffectorChildrensRouter } from "./Effector/router";
 import { ReduxToolkitChildrenRouter } from "./ReduxToolkit/router";
 import { ShareApiChildrensRouter } from "./ShareApi/router";
+import { NativeActionsChildrensRouter } from "./NativeActions/router";
 
 const router = createBrowserRouter(
   [
@@ -38,6 +39,10 @@ const router = createBrowserRouter(
           path: Routes.shareApi,
           children: ShareApiChildrensRouter,
         },
+        {
+          path: Routes.nativeActions,
+          children: NativeActionsChildrensRouter,
+        },
       ],
     },
     {
@@ -46,7 +51,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/sandbox",
+    basename: "/",
   },
 );
 

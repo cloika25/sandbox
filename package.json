@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host --base=/sandbox",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --mode production",
     "build-ghp": "vite build --base=/sandbox",
     "preview": "vite preview --host",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
@@ -17,6 +17,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@gravity-ui/uikit": "^7.8.0",
     "@reduxjs/toolkit": "^2.5.0",
     "@typescript-eslint/parser": "^8.19.0",
     "axios": "^1.7.9",

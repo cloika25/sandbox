@@ -24,17 +24,10 @@ jobs:
       - name: Build Vite app
         run: pnpm build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: vite-build
-          path: dist
-
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to Yandex Cloud
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download build artifacts
@@ -43,8 +36,18 @@ jobs:
           name: vite-build
           path: dist
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+      - name: Install Yandex Cloud CLI
+        run: |
+          wget https://storage.yandexcloud.net/yandexcloud-yc-releases/stable/linux/amd64/yc
+          chmod +x yc
+          sudo mv yc /usr/local/bin/yc
+
+      - name: Authenticate Yandex Cloud
+        run: |
+          echo ${{ secrets.YANDEX_CLOUD_KEY }} > key.json
+          yc config credentials add --service-account-key key.json
+
+      - name: Deploy to bucket
+        run: |
+          yc s3 cp --recursive dist/ s3://$BUCKET_NAME/
+          yc s3 website set s3://$BUCKET_NAME --index-document index.html

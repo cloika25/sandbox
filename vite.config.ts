@@ -4,7 +4,7 @@ import eslint from "vite-plugin-eslint2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/sandbox/",
+  base: "/",
   plugins: [
     react(),
     eslint({

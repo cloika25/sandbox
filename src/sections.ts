@@ -14,6 +14,10 @@ export const sections = [
     route: Routes.reduxToolkit,
   },
   {
+    name: "native actions (Redux 19)",
+    route: Routes.nativeActions,
+  },
+  {
     name: "dialog",
     route: Routes.dialog,
   },

@@ -13,5 +13,7 @@ export const Routes = {
 
   notification: baseUrl + "/notification",
 
+  nativeActions: baseUrl + "/nativeActions",
+
   shareApi: baseUrl + "/shareApi",
 };
