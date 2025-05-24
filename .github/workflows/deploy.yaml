@@ -40,3 +40,7 @@ jobs:
           yc-sa-json-credentials: ${{ secrets.YANDEX_CLOUD_KEY }}
           bucket: ${{ secrets.BUCKET_NAME }}
           root: ./dist
+          include: |
+            *.js
+            *.html
+            *.css
