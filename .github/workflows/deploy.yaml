@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build Vite App
+    name: Build And Deploy Vite App
     runs-on: ubuntu-latest
 
     steps:
@@ -24,12 +24,6 @@ jobs:
       - name: Build Vite app
         run: pnpm build
 
-  deploy:
-    name: Deploy to Yandex Cloud
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: setup-yc
         uses: nightstory/setup-yc@v1
 
