@@ -30,12 +30,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: vite-build
-          path: dist
-
       - name: Install Yandex Cloud CLI
         run: |
           wget https://storage.yandexcloud.net/yandexcloud-yc-releases/stable/linux/amd64/yc
