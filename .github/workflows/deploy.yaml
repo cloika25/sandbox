@@ -30,18 +30,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Yandex Cloud CLI
-        run: |
-          wget https://storage.yandexcloud.net/yandexcloud-yc-releases/stable/linux/amd64/yc
-          chmod +x yc
-          sudo mv yc /usr/local/bin/yc
+      - name: setup-yc
+        uses: nightstory/setup-yc@v1
 
-      - name: Authenticate Yandex Cloud
-        run: |
-          echo ${{ secrets.YANDEX_CLOUD_KEY }} > key.json
-          yc config credentials add --service-account-key key.json
-
-      - name: Deploy to bucket
-        run: |
-          yc s3 cp --recursive dist/ s3://$BUCKET_NAME/
-          yc s3 website set s3://$BUCKET_NAME --index-document index.html
+      - name: Upload files to Object Storage
+        id: s3-upload
+        uses: yc-actions/yc-obj-storage-upload@v3
+        with:
+          yc-sa-json-credentials: ${{ secrets.YANDEX_CLOUD_KEY }}
+          bucket: ${{ secrets.BUCKET_NAME }}
+          root: ./dist
