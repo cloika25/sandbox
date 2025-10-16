@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { Pet } from "../Effector/types";
 import { mock } from "./mock";
+import { Pet } from "../types/PetsStore";
 
 export interface PetsListState {
   count: number;

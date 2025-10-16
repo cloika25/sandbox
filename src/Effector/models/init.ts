@@ -1,5 +1,5 @@
-import { fetchByStatus, findById } from '../../api';
-import { Pet } from '../types';
+import { fetchByStatus, findById } from "../../api";
+import { Pet } from "../../types/PetsStore";
 import {
   $pets,
   getPetByIdFx,
@@ -7,15 +7,13 @@ import {
   updatePetFx,
   updatePetBuId,
   $pet,
-} from './model';
+} from "./model";
 
 updatePetFx.use(fetchByStatus);
 
 const updatePetStore = (state: Pet[], data: Pet[]) => data;
 
-$pets
-  .on(update, updatePetStore)
-  .on(updatePetFx.doneData, (_, data) => data);
+$pets.on(update, updatePetStore).on(updatePetFx.doneData, (_, data) => data);
 
 getPetByIdFx.use(findById);
 
