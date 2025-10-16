@@ -15,7 +15,7 @@ export default [
       },
     },
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
-    ignores: ["node_modules", "dist"],
+    ignores: ["node_modules", "dist", "src/vite-env.d.ts"],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: "latest",

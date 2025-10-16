@@ -9,7 +9,8 @@ import {
   updatePetBuId,
   updatePetFx,
 } from "./models/model";
-import { PetItem, PetList } from "./PetList";
+import { PetItem } from "../components/PetItem";
+import { PetList } from "../components/PetList";
 
 const PetStore = () => {
   const {

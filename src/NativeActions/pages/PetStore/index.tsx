@@ -1,6 +1,11 @@
 import { Button } from "@gravity-ui/uikit";
+import { fetchByStatus } from "../../../api";
+import { useActionState } from "react";
+import { PetList } from "../../../components/PetList";
 
 export const PetStore = () => {
+  const [state, formAction, isPending] = useActionState(fetchByStatus, []);
+
   return (
     <div className="flex flex-col gap-8 items-center text-center">
       <span>
@@ -15,9 +20,12 @@ export const PetStore = () => {
       </span>
       <h3>Получение списка животных</h3>
       <div className="flex gap-2">
-        <Button size="m" view="action">
+        <Button loading={isPending} onClick={formAction} size="m" view="action">
           Получить список
         </Button>
+      </div>
+      <div className="max-w-screen-md">
+        <PetList pets={state} />
       </div>
     </div>
   );

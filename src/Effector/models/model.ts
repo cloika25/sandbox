@@ -2,9 +2,9 @@ import {
   combine,
   createEffect,
   createEvent,
-  createStore,
-} from 'effector';
-import type { Pet } from '../types';
+  createStore
+} from "effector"
+import type { Pet } from "../../types/PetsStore";
 
 export const $pets = createStore<Pet[]>([]);
 

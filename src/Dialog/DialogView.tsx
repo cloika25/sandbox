@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useRef } from "react";
+import { MouseEventHandler, useRef } from "react";
 
 const DialogView = () => {
   const dialogRef1 = useRef<HTMLDialogElement>(null);

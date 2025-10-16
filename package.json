@@ -7,12 +7,12 @@
     "extends": "react-app"
   },
   "scripts": {
-    "dev": "vite --host --base=/sandbox",
-    "build": "tsc && vite build --mode production",
+    "dev": "vite --host",
+    "build": "tsc && vite build --base=/sandbox --mode production",
     "build-ghp": "vite build --base=/sandbox",
     "preview": "vite preview --host",
-    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint ./src ",
+    "lint:fix": "eslint --fix ./src",
     "predeploy": "pnpm run build-ghp",
     "deploy": "gh-pages -d dist"
   },

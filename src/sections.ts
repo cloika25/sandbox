@@ -14,7 +14,7 @@ export const sections = [
     route: Routes.reduxToolkit,
   },
   {
-    name: "native actions (Redux 19)",
+    name: "native actions (react 19)",
     route: Routes.nativeActions,
   },
   {

@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "./store";
-import { PetList } from "../Effector/PetList";
 import { deleteHandle, initMockData } from "./petsSlice";
+import { PetList } from "../components/PetList";
 
 const ReduxToolkitExample: React.FC = () => {
   const pets = useSelector((state: RootState) => state.petsSlice.pets);

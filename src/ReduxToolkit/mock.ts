@@ -1,4 +1,4 @@
-import { Pet, Statuses } from "../Effector/types";
+import { Pet, Statuses } from "../types/PetsStore";
 
 export const mock: Pet[] = [
   {

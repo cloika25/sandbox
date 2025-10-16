@@ -1,4 +1,3 @@
-import React from "react";
 import DialogView from "./DialogView";
 import { Routes } from "../routes";
 
