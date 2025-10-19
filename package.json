@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build --base=/sandbox --mode production",
+    "build": "tsc && vite build --mode production",
     "build-ghp": "vite build --base=/sandbox",
     "preview": "vite preview --host",
     "lint": "eslint ./src ",
